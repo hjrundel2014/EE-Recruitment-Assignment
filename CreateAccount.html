@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loo konto</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    /* CSS styles */
+    body {
+      font-family: Arial, sans-serif;
+    }
+    form {
+      margin: 20px auto;
+      max-width: 400px;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+    input[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    h1 {
+      margin-left: 30px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+    .imdb-connect-btn {
+      display: inline-block;
+      background-color: #f5c518;
+      color: #000;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      margin-top: 20px;
+      margin-left: 450px;
+      align-items: center, middle;
+    }
+    .imdb-connect-btn:hover {
+      background-color: #d4b200;
+    }
+  </style>
+</head>
+<body>
+  <h1>Loo konto</h1>
+  <form id="accountForm">
+    <input type="text" id="username" name="username" placeholder="Kasutajanimi" required>
+    <input type="password" id="password" name="password" placeholder="Parool" required>
+    <input type="submit" value="Loo konto">
+  </form>
+  <a href="https://www.imdb.com/registration/signin?ref=nv_generic_lgin&u=%2F" class="imdb-connect-btn" id="imdbConnect">Ühendage IMDb profiiliga</a>
+
+  <script>
+    // JavaScript code
+    document.getElementById('accountForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+      
+      // Retrieve username and password
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+      
+      // You can handle the form submission here, like sending it to a server for processing
+      
+      // For demonstration, let's log the values to the console
+      console.log('Username:', username);
+      console.log('Password:', password);
+    });
+
+    document.getElementById('imdbConnect').addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent default link behavior
+      
+      // Implement IMDb connection logic here
+      // Redirect users to IMDb authentication page or implement OAuth flow
+      // After successful connection, you can retrieve their watched films history
+    });
+  </script>
+</body>
+</html>

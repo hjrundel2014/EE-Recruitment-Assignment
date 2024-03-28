@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pileti ostu kinnitus</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 50px;
+}
+
+.container {
+  text-align: center;
+}
+
+.success-message {
+  color: #007f00; /* Green color */
+  font-size: 24px;
+  font-weight: bold;
+  padding: 50px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: ffbf47;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #8dc4ff;
+  }
+</style>
+
+
+<body>
+  <div class="container">
+    <h1>Pileti ostu kinnitus</h1>
+    <p class="success-message">Olete pileti edukalt ostnud!</p>
+    <div class="checkmark">
+      <span class="checkmark__circle"></span>
+      <div class="checkmark__check"></div>
+    </div>
+    <div class="buttons">
+      <a class="button send-email-button">Saada Pilet E-meili teel</a>
+      <a class="button" href="Main Page.html" onclick="goBack()">Tagasi</a>
+    </div>
+  </div>
+
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+</body>
+</html>

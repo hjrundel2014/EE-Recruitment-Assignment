@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vali Toolitüüp ja Piletid</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <style>
+   body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 50px;
+}
+
+.ticketForm {
+  margin-right: 10px;
+  
+}
+
+.button {
+  display: inline-block;
+  background-color: #ffa928;
+  color: #000;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.container {
+  margin-top: 20px;
+}
+
+label {
+  margin-right: 10px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+select, input[type="number"] {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin-top: 20px;
+}
+
+.totalPrice {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+  </style>
+  <h2>Film: Pileti Osta</h2>
+  
+  <form id="ticketForm">
+    <label for="ticketType">Piletid:</label>
+    <select id="ticketType">
+      <option value="Tavapilet">Tavapilet</option>
+      <option value="Õpilase/Tudengipilet">Õpilase/Tudengipilet</option>
+      <option value="Lastepilet">Lastepilet</option>
+    </select>
+    
+    <label for="seatType">Toolitüüp:</label>
+    <select id="seatType">
+      <option value="Klubitoolid">Klubitoolid</option>
+      <option value="Paaristoolid">Paaristoolid</option>
+      <option value="Staaritoolid">Staaritoolid</option>
+    </select>
+    
+    <label for="ticketQuantity">Quantity:</label>
+    <input type="number" id="ticketQuantity" min="1" value="1">
+    
+    <div class="container">
+      <a class="button" id="calculateTotal"onclick="calculateTotal()">Arvuta Kokku</a>
+    </div>
+  </form>
+  
+  <h2>Koguhind: €<span id="totalPrice">0</span></h2>
+  
+  <script>
+    function calculateTotal() {
+      var ticketType = document.getElementById("ticketType").value;
+      var seatType = document.getElementById("seatType").value;
+      var ticketQuantity = parseInt(document.getElementById("ticketQuantity").value);
+      
+      var ticketPrice = 0;
+      switch (ticketType) {
+        case "Tavapilet":
+          ticketPrice = 8;
+          break;
+        case "Õpilase/Tudengipilet":
+          ticketPrice = 6;
+          break;
+        case "Lastepilet":
+          ticketPrice = 5;
+          break;
+      }
+      
+      var seatPrice = 0;
+      switch (seatType) {
+        case "Klubitoolid":
+          seatPrice = 0;
+          break;
+        case "Paaristoolid":
+          seatPrice = 3;
+          break;
+        case "Staaritoolid":
+          seatPrice = 10;
+          break;
+      }
+      
+      var totalPrice = ticketPrice * ticketQuantity + seatPrice;
+      document.getElementById("totalPrice").textContent = totalPrice.toFixed(2);
+    }
+
+    function saveTicketQuantity() {
+      var ticketQuantity = document.getElementById("ticketQuantity").value;
+      sessionStorage.setItem("ticketQuantity", ticketQuantity);
+      window.location.href = "SeatSelection.html";
+    }
+
+  </script>
+  
+  <div class="container">
+    <a class="button" href="SeatSelection.html" id="calculateTotal" onclick="nextPage()">Järgmine</a>
+  </div>
+
+</body>
+</html>

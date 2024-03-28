@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Film Search</title>
+  <h1>Film Search</h1>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+    }
+    .days-slider {
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .day {
+      display: inline-block;
+      padding: 10px;
+      border: 1px solid #898989;
+      border-radius: 5px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .filter-section {
+      width: 700px;
+      background-color: #f0f0f0;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .filter-section h2 {
+      margin-top: 0;
+    }
+    .filter-option {
+      margin-bottom: 10px;
+    }
+    .filter {
+      margin-bottom: 10px;
+      
+    }
+    .filter label {
+      margin-right: 10px;
+    }
+    .button {
+      display: inline-block;
+      background-color: #ffa928;
+      color: #000;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .register-account-btn {
+      display: inline-block;
+      background-color: #ffa928;
+      color: #000;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .sign-film-history-btn {
+      display: inline-block;
+      background-color: #ffa928;
+      color: #000;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Day Selection -->
+    <div class="filters">
+      <fieldset class="day-picker schedule-filter__day-picker">
+        <legend class="day-picker__legend">Kuupäev</legend>
+        <div class="day-picker__inner">
+          <div class="day">
+            <input type="radio" id="25.03.2024" name="date" value="25.03.2024" class="day-picker__input">
+            <label for="25.03.2024" class="day-picker__label">
+              <span class="day-picker__day">E</span>
+              <span class="day-picker__text">25. mär</span>
+            </label>
+          </div>
+          
+          <div class="day">
+            <input type="radio" id="26.03.2024" name="date" value="26.03.2024" class="day-picker__input">
+            <label for="26.03.2024" class="day-picker__label">
+                <span class="day-picker__day">T</span>
+                <span class="day-picker__text">26. mär</span>
+            </label>
+        </div>
+
+        <div class="day">
+            <input type="radio" id="27.03.2024" name="date" value="27.03.2024" class="day-picker__input">
+            <label for="27.03.2024" class="day-picker__label">
+                <span class="day-picker__day">K</span>
+                <span class="day-picker__text">27. mär</span>
+            </label>
+        </div>
+
+        <div class="day">
+            <input type="radio" id="28.03.2024" name="date" value="28.03.2024" class="day-picker__input">
+            <label for="28.03.2024" class="day-picker__label">
+                <span class="day-picker__day">N</span>
+                <span class="day-picker__text">28. mär</span>
+            </label>
+        </div>
+
+        <div class="day">
+            <input type="radio" id="29.03.2024" name="date" value="29.03.2024" class="day-picker__input">
+            <label for="29.03.2024" class="day-picker__label">
+                <span class="day-picker__day">R</span>
+                <span class="day-picker__text">29. mär</span>
+            </label>
+        </div>
+
+        <div class="day">
+            <input type="radio" id="30.03.2024" name="date" value="30.03.2024" class="day-picker__input">
+            <label for="30.03.2024" class="day-picker__label">
+                <span class="day-picker__day">L</span>
+                <span class="day-picker__text">30. mär</span>
+            </label>
+        </div>
+
+        <div class="day">
+            <input type="radio" id="01.04.2024" name="date" value="01.04.2024" class="day-picker__input">
+            <label for="01.04.2024" class="day-picker__label">
+                <span class="day-picker__day">P</span>
+                <span class="day-picker__text">1. apr</span>
+            </label>
+        </div>
+
+      </div>
+      </fieldset>
+
+      <!-- Filter Section -->
+      <div class="filter-section">
+        <h2>Filtrid</h2>
+        
+        <!-- Genre Filters -->
+        <div class="filter">
+          <label>Žanr:</label>
+          <input type="checkbox" id="Seiklus" name="genre" value="Seiklus">
+          <label for="action">Seiklus</label>
+
+          <input type="checkbox" id="Komöödia" name="genre" value="Komöödia">
+          <label for="action">Komöödia</label>
+          
+          <input type="checkbox" id="Draama" name="genre" value="Draama">
+          <label for="drama">Draama</label>
+            
+          <input type="checkbox" id="Triller" name="genre" value="Triller">
+          <label for="thriller">Triller</label>
+
+          <input type="checkbox" id="Õudus" name="genre" value="Õudus">
+          <label for="horror">Õudus</label>
+
+          <input type="checkbox" id="Dokumentaal" name="genre" value="Dokumentaal">
+          <label for="documentary">Dokumentaal</label>
+          
+        </div>
+
+        <!-- Age Filters -->
+        <div class="filter">
+          <label>Vanusepiirang:</label>
+          <input type="checkbox" id="PG" name="age" value="PG">
+          <label for="pg">PG</label>
+          
+          <input type="checkbox" id="PG-13" name="age" value="PG-13">
+          <label for="PG-13">PG-13</label>
+
+          <input type="checkbox" id="R" name="age" value="R">
+          <label for="R">R</label>
+
+        </div>
+
+        <!-- Time Filters -->
+        <div class="filter">
+          <label>Kellaaeg:</label>
+          <input type="checkbox" id="10:00" name="time" value="10:00">
+          <label for="10:00">10:00</label>
+          
+          <input type="checkbox" id="11:00" name="time" value="11:00">
+          <label for="11:00">11:00</label>
+
+          <input type="checkbox" id="12:00" name="time" value="12:00">
+          <label for="12:00">12:00</label>
+
+          <input type="checkbox" id="13:00" name="time" value="13:00">
+          <label for="13:00">13:00</label>
+
+          <input type="checkbox" id="14:00" name="time" value="14:00">
+          <label for="14:00">14:00</label>
+
+          <input type="checkbox" id="15:00" name="time" value="15:00">
+          <label for="15:00">15:00</label>
+
+          <input type="checkbox" id="16:00" name="time" value="16:00">
+          <label for="16:00">16:00</label>
+          
+        </div>
+
+        <!-- Language Filters -->
+        <div class="filter">
+          <label>Keel:</label>
+          <input type="checkbox" id="Eesti" name="language" value="Eesti">
+          <label for="Eesti">Eesti</label>
+        
+          <input type="checkbox" id="Vene" name="language" value="Vene">
+          <label for="Vene">Vene</label>
+
+          <input type="checkbox" id="Inglise" name="language" value="Inglise">
+          <label for="Inglise">Inglise</label>
+
+        </div>
+      </div>
+
+      
+      <div class="container">
+        <a href="CreateAccount.html" class="register-account-btn" id="RegisterAccount">Registreeri Konto</a>
+        <a href="https://www.imdb.com/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.imdb.com%2Fregistration%2Fap-signin-handler%2Fimdb_us&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=imdb_us&openid.mode=checkid_setup&siteState=eyJvcGVuaWQuYXNzb2NfaGFuZGxlIjoiaW1kYl91cyIsInJlZGlyZWN0VG8iOiJodHRwczovL3d3dy5pbWRiLmNvbS9saXN0L3dhdGNobGlzdD9yZWZfPWxnbl9udl91c3Jfd2xfYWxsXzAifQ&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&tag=imdbtag_reg-20" class="sign-film-history-btn" id="FilmHistory">Märk filmiajalukku</a>
+      </div>
+
+      <!-- Film List Container -->
+      <div id="filmList">
+       
+      </div>
+        
+
+
+      </div>
+    </div>
+  </div>
+
+  
+  <script src="app.js"></script>
+</body>
+</html>

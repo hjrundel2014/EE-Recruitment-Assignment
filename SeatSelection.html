@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Istmekohtade Valimine</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 50px;
+    }
+    
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #2a2a2a;
+      border: 1px solid #ffbf47;
+    }
+    .seat {
+      width: 40px;
+      height: 40px;
+      margin: 5px;
+      background-color: #ccc;
+      border: 1px solid #787676;
+      display: inline-block;
+      cursor: pointer;
+    }
+    .selected {
+      background-color: #7be754;
+    }
+  </style>
+  
+</head>
+<body>
+  <h1>Istmekohtade Valimine</h1>
+    <p>Piletite arv: <span id="ticketQuantityDisplay"></span></p>
+
+<div class="container">
+      <div id="seatContainer">
+        <!-- Seats will be populated dynamically here -->
+      </div>
+
+    <script>
+      // Retrieve maxTickets from query parameter or from previous page
+      const urlParams = new URLSearchParams(window.location.search="ticket-selection.html");
+      const maxTickets = parseInt(urlParams.get('ticketQuantity')) || 1; // Default to 1 if parameter is not provided
+
+      document.getElementById("ticketQuantityDisplay").textContent = maxTickets;
+
+      // Create seat selection grid
+      const seatContainer = document.getElementById('seatContainer');
+
+      for (let row = 1; row <= 5; row++) {
+        for (let col = 1; col <= 10; col++) {
+          const seatNumber = (row * 10) + col;
+          const seat = document.createElement('div');
+          seat.classList.add('seat');
+          seat.dataset.seatNumber = seatNumber;
+          seat.innerText = seatNumber;
+          seat.addEventListener('click', () => toggleSeat(seat));
+          seatContainer.appendChild(seat);
+        }
+        seatContainer.appendChild(document.createElement('br')); // Line break after each row
+      }
+
+      // Function to toggle seat selection
+      function toggleSeat(seat) {
+        if (seat.classList.contains('selected')) {
+          seat.classList.remove('selected');
+        } else {
+          // Check if the user has selected the maximum number of tickets
+          const selectedSeats = document.querySelectorAll('.selected');
+          if (selectedSeats.length < maxTickets) {
+            seat.classList.add('selected');
+          } else {
+            alert(`You can only select ${maxTickets} seats.`);
+          }
+        }
+      }
+    </script>
+
+</div>
+    <a class="button" href="FinalPage.html" id="calculateTotal" onclick="nextPage()">Maksma</a>
+
+</body>
+</html>
